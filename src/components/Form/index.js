@@ -48,13 +48,13 @@ export default function Form() {
 const styles = StyleSheet.create({
     boxForm: {
         backgroundColor: "#ffebcd",
-        width: 400,
+        width: 360,
         height: 400,
         borderRadius: 20,
         alignItems: "center",
         justifyContent: "center",
         shadowColor: "black",
-        shadowOpacity: 0.6,
+        shadowOpacity: 0.2,
         shadowRadius: 12,
     },
 
