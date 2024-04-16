@@ -7,9 +7,6 @@ export default function Title() {
             <Text style={styles.containerText}>Cálculo de IMC</Text>
             <Image style={{ width: 160, height: 160, alignSelf: "center", marginTop: 20, }} source={require('../../img/Calculator-cuate.png')} />
         </View>
-
-
-
     );
 }
 
