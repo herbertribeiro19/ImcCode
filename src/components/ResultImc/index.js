@@ -8,14 +8,13 @@ export default function ResultImc(props) {
             <Text style={styles.textResultado2}>{props.ResultImc}</Text>
             <Text style={styles.textResultado3}>{props.classificacao}</Text>
         </View>
-        
     );
 }
 
 const styles = StyleSheet.create({
 
     textResultado: {
-        margin: 6,
+        marginBottom: 2,
         fontSize: 18,
         color: "#191970",
         fontWeight: "500",
@@ -24,7 +23,7 @@ const styles = StyleSheet.create({
     },
 
     textResultado2: {
-        marginBottom: 14,
+        marginBottom: 2,
         fontSize: 42,
         color: "#191970",
         fontWeight: "bold",
@@ -33,7 +32,7 @@ const styles = StyleSheet.create({
     },
 
     textResultado3: {
-        marginBottom: 14,
+        marginBottom: 0,
         fontSize: 16,
         color: "#333",
         fontWeight: "bold",

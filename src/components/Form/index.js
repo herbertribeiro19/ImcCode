@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import ResultImc from "../ResultImc/";
 
 export default function Form() {
@@ -52,9 +52,9 @@ export default function Form() {
                 <TextInput style={styles.inputHeight} onChangeText={setHeight} value={height} placeholder="Ex. 1.75" keyboardType="numeric"></TextInput>
                 <Text style={styles.textWeight}>Peso</Text>
                 <TextInput style={styles.inputWeight} onChangeText={setWeight} value={weight} placeholder="Ex. 65.25" keyboardType="numeric"></TextInput>
-                <View style={styles.btnCalculo} >
-                    <Button color="#ffebcd" onPress={() => verificationImc()} title={textButton} />
-                </View>
+                <TouchableOpacity style={styles.btnCalculo} onPress={() => { verificationImc() }}>
+                    <Text style={styles.btnText} >{textButton}</Text>
+                </TouchableOpacity>
             </View>
             <ResultImc messageResultImc={messageImc} ResultImc={imc} classificacao={tipoClassificacao} />
         </View>
@@ -62,18 +62,6 @@ export default function Form() {
 }
 
 const styles = StyleSheet.create({
-    // boxForm: {
-    //     backgroundColor: "#ffebcd",
-    //     width: 360,
-    //     height: 400,
-    //     borderRadius: 20,
-    //     alignItems: "center",
-    //     justifyContent: "center",
-    //     shadowColor: "black",
-    //     shadowOpacity: 0.2,
-    //     shadowRadius: 12,
-    // },
-
     boxForm: {
         width: "100%",
         height: "100%",
@@ -96,7 +84,6 @@ const styles = StyleSheet.create({
     },
 
     textHeight: {
-        marginTop: 14,
         fontSize: 22,
         color: "#191970",
         fontWeight: "bold",
@@ -132,15 +119,22 @@ const styles = StyleSheet.create({
 
     btnCalculo: {
         backgroundColor: "#191970",
-        padding: 10,
+        padding: 8,
         borderRadius: 30,
         color: "black",
         fontWeight: "bold",
-        margin: 10,
-        textDecorationColor: "black",
+        marginRight: 10,
+        marginLeft: 10,
+        marginTop: 4,
+        alignItems: "center",
+        justifyContent: "center",
     },
 
-
-
+    btnText: {
+        fontSize: 18,
+        color: "#ffebcd",
+        fontWeight: "bold",
+        margin: 10,
+    },
 
 });
