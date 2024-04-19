@@ -1,17 +1,18 @@
 import React, { useState } from "react"
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, Pressable, Keyboard } from 'react-native';
 import ResultImc from "../ResultImc/";
 
 export default function Form() {
     const [height, setHeight] = useState(null)
     const [weight, setWeight] = useState(null)
-    const [messageImc, setMessageImc] = useState("Preencha o peso e altura")
+    const [messageImc, setMessageImc] = useState(null)
     const [imc, setImc] = useState()
     const [textButton, setTextButton] = useState("Calcular")
     const [tipoClassificacao, setTipoClassificacao] = useState(null)
 
     function imcCalculator() {
-        const calculatedImc = (weight / (height * height)).toFixed(2);
+        let heightFormat = height.replace(",", ".")
+        const calculatedImc = (weight / (heightFormat * heightFormat)).toFixed(2);
         setImc(calculatedImc);
 
         if (calculatedImc < 18.5) {
@@ -34,6 +35,7 @@ export default function Form() {
             imcCalculator();
             setMessageImc("Seu IMC é igual a:");
             setTextButton("Calcular Novamente");
+            Keyboard.dismiss();
         } else {
             setImc(null);
             setTipoClassificacao(null);
@@ -46,7 +48,7 @@ export default function Form() {
     }
 
     return (
-        <View style={styles.boxForm}>
+        <Pressable onPress={Keyboard.dismiss} style={styles.boxForm}>
             <View style={styles.form}>
                 <Text style={styles.textHeight}>Altura</Text>
                 <TextInput style={styles.inputHeight} onChangeText={setHeight} value={height} placeholder="Ex. 1.75" keyboardType="numeric"></TextInput>
@@ -57,7 +59,7 @@ export default function Form() {
                 </TouchableOpacity>
             </View>
             <ResultImc messageResultImc={messageImc} ResultImc={imc} classificacao={tipoClassificacao} />
-        </View>
+        </Pressable>
     );
 }
 
@@ -70,10 +72,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
-        marginTop: 30,
+        marginTop: 20,
         shadowColor: "black",
         shadowOpacity: 0.6,
-        shadowRadius: 12,
+        shadowRadius: 10,
     },
 
     form: {
@@ -126,6 +128,7 @@ const styles = StyleSheet.create({
         marginRight: 10,
         marginLeft: 10,
         marginTop: 4,
+        marginBottom: 10,
         alignItems: "center",
         justifyContent: "center",
     },
