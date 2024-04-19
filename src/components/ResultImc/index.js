@@ -6,7 +6,9 @@ export default function ResultImc(props) {
         <View>
             <Text style={styles.textResultado}>{props.messageResultImc}</Text>
             <Text style={styles.textResultado2}>{props.ResultImc}</Text>
+            <Text style={styles.textResultado3}>{props.classificacao}</Text>
         </View>
+        
     );
 }
 
@@ -25,6 +27,15 @@ const styles = StyleSheet.create({
         marginBottom: 14,
         fontSize: 42,
         color: "#191970",
+        fontWeight: "bold",
+        justifyContent: "center",
+        textAlign: "center",
+    },
+
+    textResultado3: {
+        marginBottom: 14,
+        fontSize: 16,
+        color: "#333",
         fontWeight: "bold",
         justifyContent: "center",
         textAlign: "center",

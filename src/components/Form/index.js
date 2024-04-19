@@ -6,25 +6,43 @@ export default function Form() {
     const [height, setHeight] = useState(null)
     const [weight, setWeight] = useState(null)
     const [messageImc, setMessageImc] = useState("Preencha o peso e altura")
-    const [imc, setImc] = useState(null)
+    const [imc, setImc] = useState()
     const [textButton, setTextButton] = useState("Calcular")
+    const [tipoClassificacao, setTipoClassificacao] = useState(null)
 
     function imcCalculator() {
-        return setImc((weight / (height * height)).toFixed(2))
+        const calculatedImc = (weight / (height * height)).toFixed(2);
+        setImc(calculatedImc);
+
+        if (calculatedImc < 18.5) {
+            setTipoClassificacao("Abaixo do peso");
+        } else if (calculatedImc >= 18.5 && calculatedImc < 24.9) {
+            setTipoClassificacao("Peso normal");
+        } else if (calculatedImc >= 25 && calculatedImc < 29.9) {
+            setTipoClassificacao("Sobrepeso");
+        } else if (calculatedImc >= 30 && calculatedImc < 34.9) {
+            setTipoClassificacao("Obesidade grau 1");
+        } else if (calculatedImc >= 35 && calculatedImc < 39.9) {
+            setTipoClassificacao("Obesidade grau 2");
+        } else {
+            setTipoClassificacao("Obesidade grau 3");
+        }
     }
 
     function verificationImc() {
-        if (weight != null && height != null) {
-            imcCalculator()
-            setHeight(null)
-            setWeight(null)
-            setMessageImc("Seu IMC é igual a: ")
-            setTextButton("Calcular Novamente")
-            return
+        if (weight !== null && height !== null) {
+            imcCalculator();
+            setMessageImc("Seu IMC é igual a:");
+            setTextButton("Calcular Novamente");
+        } else {
+            setImc(null);
+            setTipoClassificacao(null);
+            setMessageImc("Preencha o peso e altura");
+            setTextButton("Calcular");
         }
-        setImc(null)
-        setTextButton("Calcular")
-        setMessageImc("Preencha o peso e altura")
+        // Limpando os campos de entrada após o cálculo
+        setHeight(null);
+        setWeight(null);
     }
 
     return (
@@ -37,10 +55,8 @@ export default function Form() {
                 <View style={styles.btnCalculo} >
                     <Button color="#ffebcd" onPress={() => verificationImc()} title={textButton} />
                 </View>
-
             </View>
-
-            <ResultImc messageResultImc={messageImc} ResultImc={imc} />
+            <ResultImc messageResultImc={messageImc} ResultImc={imc} classificacao={tipoClassificacao} />
         </View>
     );
 }
