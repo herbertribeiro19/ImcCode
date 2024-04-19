@@ -15,11 +15,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexWrap: "wrap",
     backgroundColor: "#191970",
-    alignItems: "center",
-    alignContent: 'center',
-    justifyContent: "space-around",
   },
 });

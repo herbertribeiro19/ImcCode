@@ -62,21 +62,42 @@ export default function Form() {
 }
 
 const styles = StyleSheet.create({
+    // boxForm: {
+    //     backgroundColor: "#ffebcd",
+    //     width: 360,
+    //     height: 400,
+    //     borderRadius: 20,
+    //     alignItems: "center",
+    //     justifyContent: "center",
+    //     shadowColor: "black",
+    //     shadowOpacity: 0.2,
+    //     shadowRadius: 12,
+    // },
+
     boxForm: {
+        width: "100%",
+        height: "100%",
+        bottom: 0,
         backgroundColor: "#ffebcd",
-        width: 360,
-        height: 400,
-        borderRadius: 20,
         alignItems: "center",
-        justifyContent: "center",
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        marginTop: 30,
         shadowColor: "black",
-        shadowOpacity: 0.2,
+        shadowOpacity: 0.6,
         shadowRadius: 12,
+    },
+
+    form: {
+        width: "100%",
+        height: "auto",
+        marginTop: 30,
+        padding: 20,
     },
 
     textHeight: {
         marginTop: 14,
-        fontSize: 24,
+        fontSize: 22,
         color: "#191970",
         fontWeight: "bold",
         marginBottom: 12,
@@ -86,11 +107,14 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: "#191910",
         fontWeight: "bold",
-        marginBottom: 20,
+        marginBottom: 10,
+        backgroundColor: "#ffeb",
+        padding: 14,
+        borderRadius: 30,
     },
 
     textWeight: {
-        fontSize: 24,
+        fontSize: 22,
         color: "#191970",
         fontWeight: "bold",
         marginBottom: 12,
@@ -100,13 +124,16 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: "#191910",
         fontWeight: "bold",
-        marginBottom: 20,
+        marginBottom: 10,
+        backgroundColor: "#ffeb",
+        padding: 14,
+        borderRadius: 30,
     },
 
     btnCalculo: {
         backgroundColor: "#191970",
         padding: 10,
-        borderRadius: 20,
+        borderRadius: 30,
         color: "black",
         fontWeight: "bold",
         margin: 10,

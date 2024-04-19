@@ -5,14 +5,14 @@ export default function Title() {
     return (
         <View>
             <Text style={styles.containerText}>Cálculo de IMC</Text>
-            <Image style={{ width: 160, height: 160, alignSelf: "center", marginTop: 20, }} source={require('../../img/Calculator-cuate.png')} />
+            <Image style={{ width: 140, height: 140, alignSelf: "center", marginTop: 20, }} source={require('../../img/Calculator-cuate.png')} />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     containerText: {
-        marginTop: 40,
+        marginTop: 66,
         fontSize: 30,
         fontWeight: 'bold',
         textAlign: 'center',
