@@ -18,15 +18,12 @@ export default function ResultImc(props) {
             <Text style={styles.textResultado}>{props.messageResultImc}</Text>
             <Text style={styles.textResultado2}>{props.ResultImc}</Text>
             <Text style={styles.textResultado3}>{props.classificacao}</Text>
-            {props.ResultImc != null ?
-                <View>
-                    <TouchableOpacity onPress={onShare}>
-                        <Feather style={styles.btnShare} name="share" size={24} color="#191970" />
-                    </TouchableOpacity>
-                </View>
-                :
-                <View />
-            }
+
+            <View>
+                <TouchableOpacity onPress={onShare}>
+                    <Feather style={styles.btnShare} name="share" size={24} color="#191970" />
+                </TouchableOpacity>
+            </View>
         </View >
     );
 }
@@ -34,6 +31,7 @@ export default function ResultImc(props) {
 const styles = StyleSheet.create({
 
     textResultado: {
+        marginTop: 40,
         marginBottom: 2,
         fontSize: 18,
         color: "#191970",

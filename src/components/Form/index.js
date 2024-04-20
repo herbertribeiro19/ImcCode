@@ -48,18 +48,26 @@ export default function Form() {
     }
 
     return (
-        <Pressable onPress={Keyboard.dismiss} style={styles.boxForm}>
-            <View style={styles.form}>
-                <Text style={styles.textHeight}>Altura</Text>
-                <TextInput style={styles.inputHeight} onChangeText={setHeight} value={height} placeholder="Ex. 1.75" keyboardType="numeric"></TextInput>
-                <Text style={styles.textWeight}>Peso</Text>
-                <TextInput style={styles.inputWeight} onChangeText={setWeight} value={weight} placeholder="Ex. 65.25" keyboardType="numeric"></TextInput>
-                <TouchableOpacity style={styles.btnCalculo} onPress={() => { verificationImc() }}>
-                    <Text style={styles.btnText} >{textButton}</Text>
-                </TouchableOpacity>
-            </View>
-            <ResultImc messageResultImc={messageImc} ResultImc={imc} classificacao={tipoClassificacao} />
+        <View style={styles.boxForm}>
+            {imc == null ?
+                <Pressable onPress={Keyboard.dismiss} style={styles.form}>
+            <Text style={styles.textHeight}>Altura</Text>
+            <TextInput style={styles.inputHeight} onChangeText={setHeight} value={height} placeholder="Ex. 1.75" keyboardType="numeric"></TextInput>
+            <Text style={styles.textWeight}>Peso</Text>
+            <TextInput style={styles.inputWeight} onChangeText={setWeight} value={weight} placeholder="Ex. 65.25" keyboardType="numeric"></TextInput>
+            <TouchableOpacity style={styles.btnCalculo} onPress={() => { verificationImc() }}>
+                <Text style={styles.btnText} >{textButton}</Text>
+            </TouchableOpacity>
         </Pressable>
+            :
+    <View style={styles.exibitionResult}>
+        <ResultImc messageResultImc={messageImc} ResultImc={imc} classificacao={tipoClassificacao} />
+        <TouchableOpacity style={styles.btnCalculo} onPress={() => { verificationImc() }}>
+            <Text style={styles.btnText} >{textButton}</Text>
+        </TouchableOpacity>
+    </View>
+}
+        </View >
     );
 }
 
@@ -138,6 +146,11 @@ const styles = StyleSheet.create({
         color: "#ffebcd",
         fontWeight: "bold",
         margin: 10,
+    },
+
+    exibitionResult: {
+        width: "100%",
+        height: "50%",
     },
 
 });
